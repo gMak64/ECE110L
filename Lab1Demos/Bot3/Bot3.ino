@@ -10,7 +10,7 @@ Servo servoRight;
 
 const int pushButtonPin = 11;
 const float voltageMinimum = 0.05;
-const float voltageMaximum = 2.00;
+const float voltageMaximum = 1.50;
 void setup()
 {
   Serial.begin(9600);
@@ -28,14 +28,14 @@ void loop()
     turnLeft();
   }
   
-  else if (voltageAmount > voltageMaximum) {
+  else if (voltageAmount > voltageMaximum) { 
     turnRight();
   }
   
   else {
     standStill();
   }
-
+  Serial.println(voltageAmount);
 }
                                              
 float volts(int adPin)                       // Measures volts at adPin
@@ -45,7 +45,7 @@ float volts(int adPin)                       // Measures volts at adPin
 
 void standStill(){
   servoLeft.writeMicroseconds(1500);
-  servoRight.writeMicroseconds(1500);//servo is slightly off center
+  servoRight.writeMicroseconds(1500); 
   return;
 }
 

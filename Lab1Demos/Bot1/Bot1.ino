@@ -14,7 +14,7 @@ char code[0];
 int bytesread {0};
 
 void setup() {
-  Serial.begin(2400);
+  Serial.begin(9600);
   pinMode(2, OUTPUT);
   digitalWrite(2, LOW);
 
@@ -40,7 +40,7 @@ void loop() {
         Serial.println(code[9]);
         switch(code[9]) {
           case '2': // Sound
-            tone(4, 1000, 3000);
+            tone(4, 466, 3000);
             break;
            case 'C': // Forward
             servoLeft.attach(13);
